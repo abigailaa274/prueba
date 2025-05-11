@@ -1,17 +1,19 @@
 import java.util.*;
+import java.time.LocalDate;
+
 
 public class Tarea {
     //atributos
     private String id;
     private String nombre;
     private  int estado;
-    //falta fecha iicio y fecha fin
     private Boolean esAlta;
     private String codigo;
     private String descripcion;
-
+    private LocalDate fechaInicio;
+    private LocalDate fechaFin;
     //contructor
-    public Tarea(String nombre, int estado, Boolean  esAlta, String codigo){
+    public Tarea(String nombre, int estado, LocalDate fechaInicio, LocalDate fechaFin){
 
         //falta fecha inicio y fin
 
@@ -19,7 +21,8 @@ public class Tarea {
         this.estado=estado;
         this.esAlta=true;
         this.codigo = UUID.randomUUID().toString();
-
+        this.fechaInicio = fechaInicio;
+        this.fechaFin = fechaFin;
     }
 
     //get y set
@@ -27,41 +30,52 @@ public class Tarea {
     public String getId(){
         return this.id;
     }
-    public String nombre(){
+    public String getnombre(){
         return this.nombre;
     }
     public int getestado(){
         return this.estado;
     }
-    //falta fecha y hora                                                        falta fecha y hora
     public Boolean getesAlta(){
         return this.esAlta;
     }
-    public   String getcodigo(){
+    public  String getcodigo(){
         return this.codigo;
     }
     public String descripcion(){
         return this.descripcion;
     }
+    public LocalDate getFechaInicio() {
+        return fechaInicio;
+    }
+    public LocalDate getFechaFin() {
+        return fechaFin;
+    }
 
     //set permite modificar el valor de los atributos privados.
-    public String nombre(String nombre){
-        return this.nombre=nombre;
+    public void setnombre(String nombre){
+        nombre=nombre;
     }
-    public int getestado(int estado){
-        return this.estado=estado;
+    public void setestado(int estado){
+        this.estado=estado;
     }
     //falta fecha y hora                                                       falta fecha y hora
-    public Boolean getesAlta(Boolean esAlta){
-        return this.esAlta=esAlta;
+    public void setesAlta(Boolean esAlta){
+        this.esAlta=esAlta;
     }
-    public   String getcodigo(String codigo){
-        return this.codigo=codigo;
+    public   void setcodigo(String codigo){
+        this.codigo=codigo;
     }
-    public String descripcion(String nombre){
-        return this.descripcion=descripcion;
+    public void setdescripcion(String descripcion){
+        this.descripcion=descripcion;
+    }
+    public void setFechaInicio() {
+        this.fechaInicio=fechaInicio;
     }
 
+    public  void setFechaFin() {
+        this.fechaFin=fechaFin;
+    }
 
     //texto como salió del docu de la consigna.
     @Override         //significa sobreescribir, modifica la manera en que se ve un texto
@@ -71,10 +85,10 @@ public class Tarea {
         return "Tarea [" +
                 "código=" + codigo +
                 ", nombre='" + nombre + '\'' +                  //la barrita hace de escape para mostrar la comilla simple
-                //", descripción='" + descripcion + '\'' +
+                ", descripción='" + descripcion + '\'' +
                 ", estado=" + estado +
-                //", fechaInicio=" + fechaInicio +
-                //", fechaFin=" + fechaFin +
+                ", fechaInicio=" + fechaInicio +
+                ", fechaFin=" + fechaFin +
                 ", esAlta=" + esAlta +
                 "]";
     }
